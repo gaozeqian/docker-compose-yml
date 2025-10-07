@@ -1,0 +1,18 @@
+services:
+  mongodb:
+    image: docker.1ms.run/mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=P@ssw0rd123
+    volumes:
+      - mongo-data:/data/db
+      - mongo-config:/data/configdb
+volumes:
+  mongo-data:
+  mongo-config:
