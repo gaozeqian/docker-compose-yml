@@ -1,6 +1,6 @@
 services:
   mongodb:
-    image: docker.1ms.run/mongo:latest
+    image: mongo:latest
     container_name: mongodb
     restart: unless-stopped
     labels:

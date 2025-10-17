@@ -1,6 +1,6 @@
 services:
   watchtower:
-    image: docker.1ms.run/containrrr/watchtower:latest
+    image: containrrr/watchtower:latest
     container_name: watchtower
     restart: unless-stopped
     environment:

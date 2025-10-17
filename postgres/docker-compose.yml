@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: docker.1ms.run/postgres:latest
+    image: postgres:latest
     container_name: postgres
     restart: unless-stopped
     labels:
