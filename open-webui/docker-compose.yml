@@ -9,6 +9,8 @@ services:
       - "3000:8080"
     volumes:
       - open-webui-data:/app/backend/data
+    networks:
+      - ollama_open-webui
     deploy:
       resources:
         reservations:
@@ -19,3 +21,8 @@ services:
 
 volumes:
   open-webui-data:
+
+
+networks:
+  ollama_open-webui:
+    external: true

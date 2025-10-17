@@ -11,6 +11,9 @@ services:
       - ollama-data:/root/.ollama
     environment:
       - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_ORIGINS=*
+    networks:
+      - ollama_open-webui
     deploy:
       resources:
         reservations:
@@ -21,3 +24,8 @@ services:
 
 volumes:
   ollama-data:
+
+
+networks:
+  ollama_open-webui:
+    external: true
