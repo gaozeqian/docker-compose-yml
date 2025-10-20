@@ -8,11 +8,13 @@ services:
     ports:
       - "27017:27017"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=P@ssw0rd123
     volumes:
       - mongo-data:/data/db
       - mongo-config:/data/configdb
+    command: [ "mongod", "--bind_ip_all", "--auth" ]
+
 volumes:
   mongo-data:
   mongo-config:
