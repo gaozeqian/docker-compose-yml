@@ -8,9 +8,9 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - open-webui-data:/app/backend/data
+      - data:/app/backend/data
     networks:
-      - ollama_open-webui
+      - network
     deploy:
       resources:
         reservations:
@@ -20,9 +20,9 @@ services:
               capabilities: [ gpu ]
 
 volumes:
-  open-webui-data:
+  data:
 
 
 networks:
-  ollama_open-webui:
-    external: true
+  network:
+    driver: bridge
