@@ -1,7 +1,7 @@
 services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb
+  mongodb-8:
+    image: mongo:8
+    container_name: mongodb-8
     restart: unless-stopped
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -11,10 +11,9 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=P@ssw0rd123
     volumes:
-      - mongo-data:/data/db
-      - mongo-config:/data/configdb
-    command: [ "mongod", "--bind_ip_all", "--auth" ]
+      - data:/data/db
+      - config:/data/configdb
 
 volumes:
-  mongo-data:
-  mongo-config:
+  data:
+  config:
