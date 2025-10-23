@@ -1,16 +1,16 @@
 services:
-  grafana:
-    image: grafana/grafana:latest
-    container_name: grafana
+  grafana-12:
+    image: grafana/grafana:12
+    container_name: grafana-12
     restart: unless-stopped
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_PASSWORD=P@ssw0rd123
     ports:
       - "3000:3000"
     volumes:
-      - grafana-data:/var/lib/grafana
+      - data:/var/lib/grafana
 
 volumes:
-  grafana-data:
+  data:
