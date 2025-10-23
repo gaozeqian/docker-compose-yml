@@ -6,14 +6,12 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     ports:
-      - "11434:11434"
+      - "11433:11434"
     volumes:
-      - ollama-data:/root/.ollama
+      - data:/root/.ollama
     environment:
       - OLLAMA_HOST=0.0.0.0
       - OLLAMA_ORIGINS=*
-    networks:
-      - ollama_open-webui
     deploy:
       resources:
         reservations:
@@ -23,9 +21,4 @@ services:
               capabilities: [ gpu ]
 
 volumes:
-  ollama-data:
-
-
-networks:
-  ollama_open-webui:
-    external: true
+  data:
